@@ -1,0 +1,23 @@
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Java
+target/
+*.class
+*.jar
+*.log
+
+# C/C++
+*.o
+*.exe
+build/
+cmake-build-*/
+
+# Env
+.env
