@@ -1,23 +1,47 @@
-# IDE
-.vscode/
-.idea/
-*.iml
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+dependency-reduced-pom.xml
 
-# OS
-.DS_Store
-Thumbs.db
+# Gradle
+.gradle/
+build/
 
 # Java
-target/
 *.class
 *.jar
+*.war
+*.ear
 *.log
+hs_err_pid*
 
-# C/C++
+# C++
 *.o
+*.so
+*.dll
 *.exe
+*.out
 build/
 cmake-build-*/
 
-# Env
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Environment
 .env
+.env.local
+*.env
+
+# OS
+Thumbs.db
