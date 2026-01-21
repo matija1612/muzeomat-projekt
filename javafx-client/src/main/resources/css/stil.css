@@ -1,0 +1,117 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+/* Dobrodosli ekran */
+.dobrodosli-ekran {
+    -fx-background-color: linear-gradient(to bottom, #667eea, #764ba2);
+}
+.naslov {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.podnaslov {
+    -fx-text-fill: #e0e7ff;
+}
+
+.vrijeme {
+    -fx-text-fill: #c7d2fe;
+}
+.info {
+    -fx-text-fill: #e0e7ff;
+}
+/* Glavni container */
+.glavni {
+    -fx-background-color: #f3f4f6;
+}
+/* Header */
+.header {
+    -fx-background-color: linear-gradient(to right, #667eea, #764ba2);
+}
+.header-naslov {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.status {
+    -fx-text-fill: #e0e7ff;
+}
+/* Tablica */
+.tablica {
+    -fx-background-color: white;
+}
+.table-view {
+    -fx-background-color: white;
+}
+.table-view .column-header {
+    -fx-background-color: #667eea;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.table-row-cell {
+    -fx-background-color: white;
+}
+.table-row-cell:hover {
+    -fx-background-color: #f3f4f6;
+}
+.table-row-cell:selected {
+    -fx-background-color: #ddd6fe;
+}
+/* Rezultat panel */
+.rezultat {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 0 0 0 2;
+}
+.sekcija-naslov {
+    -fx-text-fill: #374151;
+    -fx-font-weight: bold;
+}
+.rezultat-label {
+    -fx-text-fill: #1f2937;
+    -fx-background-color: #f3f4f6;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+}
+/* Lista */
+.lista {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 1;
+    -fx-border-radius: 8px;
+}
+.lista .list-cell {
+    -fx-padding: 12px;
+    -fx-background-color: white;
+}
+.lista .list-cell:hover {
+    -fx-background-color: #f9fafb;
+}
+.lista .list-cell:selected {
+    -fx-background-color: #ddd6fe;
+    -fx-text-fill: #5b21b6;
+}
+/* Buttons */
+.buttons {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 2 0 0 0;
+}
+.btn-glavni {
+    -fx-background-color: #667eea;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px 40px;
+    -fx-cursor: hand;
+}
+.btn-glavni:hover {
+    -fx-background-color: #5568d3;
+}
+
+.btn-glavni:pressed {-fx-background-color: #4c51bf;
+}
+.btn-glavni:disabled {-fx-background-color: #9ca3af;-fx-opacity: 0.6;
+}
+.btn-sekundarni {-fx-background-color: #e5e7eb;-fx-text-fill: #374151;-fx-background-radius: 8px;-fx-padding: 15px 40px;-fx-cursor: hand;
+}
+.btn-sekundarni:hover {-fx-background-color: #d1d5db;
+}
