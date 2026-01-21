@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx/21" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="hr.muzej.javafx.controller.OdabirController"
+            styleClass="glavni">
+    
+    <top>
+        <VBox styleClass="header" spacing="10">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            
+            <Label text="Odabir prostorija" styleClass="header-naslov">
+                <font><Font size="32" /></font>
+            </Label>
+            
+            <Label fx:id="statusLabel" text="Ucitavanje..." styleClass="status">
+                <font><Font size="16" /></font>
+            </Label>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="tablica" styleClass="tablica">
+            <columns>
+                <TableColumn fx:id="odabranaCol" text="Odaberi" 
+                             prefWidth="80" minWidth="80" maxWidth="80" />
+                <TableColumn fx:id="nazivCol" text="Naziv" 
+                             prefWidth="200" minWidth="150" />
+                <TableColumn fx:id="katCol" text="Kat" 
+                             prefWidth="60" minWidth="60" maxWidth="80" />
+                <TableColumn fx:id="opisCol" text="Opis" 
+                             prefWidth="300" minWidth="200" />
+            </columns>
+        </TableView>
+    </center>
+    
+    <right>
+        <VBox fx:id="rezultatBox" visible="false" spacing="15" 
+              styleClass="rezultat" prefWidth="400">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            
+            <Label text="Rezultat" styleClass="sekcija-naslov">
+                <font><Font size="20" /></font>
+            </Label>
+            
+            <Label fx:id="rezultatLabel" wrapText="true" styleClass="rezultat-label">
+                <font><Font size="14" /></font>
+            </Label>
+            
+
+
+            <Separator />
+            
+            <Label text="Redoslijed:" styleClass="sekcija-naslov">
+                <font><Font size="16" /></font>
+            </Label>
+            
+            <ListView fx:id="rutaList" prefHeight="300" styleClass="lista" />
+        </VBox>
+    </right>
+    
+    <bottom>
+        <HBox spacing="15" alignment="CENTER" styleClass="buttons">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            
+            <Button fx:id="natragBtn" text="← Natrag" 
+                    onAction="#handleNatrag" styleClass="btn-sekundarni">
+                <font><Font size="18" /></font>
+            </Button>
+            
+            <Button fx:id="optimizirajBtn" text="Optimiziraj rutu" 
+                    onAction="#handleOptimiziraj" styleClass="btn-glavni">
+                <font><Font size="18" /></font>
+            </Button>
+        </HBox>
+    </bottom>
+    
+</BorderPane>
