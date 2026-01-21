@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
-<groupId>hr.muzej</groupId>
-<artifactId>muzej-backend</artifactId>
-<version>1.0.0</version>
-<packaging>jar</packaging>
-<name>Muzej Backend</name>
-<description>Backend server za muzeomat sustav</description>
-<parent>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter-parent</artifactId>
-<version>3.2.1</version>
-</parent>
-<properties>
-<java.version>25</java.version>
-<maven.compiler.source>25</maven.compiler.source>
-<maven.compiler.target>25</maven.compiler.target>
-</properties>
-<dependencies>
-<!-- Spring Boot Web -->
-<dependency>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter-web</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>hr.muzej</groupId>
+    <artifactId>muzej-backend</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>Muzej Backend</name>
+    <description>Backend server za muzeomat sustav</description>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.0.1</version>
+    </parent>
+    <properties>
+        <java.version>25</java.version>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <!-- Spring Boot Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- Spring Data JPA -->
         <dependency>
@@ -52,6 +52,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+            <version>1.18.40</version>
         </dependency>
         <!-- Validation -->
         <dependency>
@@ -64,6 +65,23 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.12.0</version>
+                <configuration>
+                    <source>25</source>
+                    <target>25</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.40</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
         </plugins>
     </build>
