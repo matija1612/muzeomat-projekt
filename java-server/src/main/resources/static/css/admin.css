@@ -1,0 +1,203 @@
+/* Admin Panel Stilovi */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+}
+/* Login stranica */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 100%;
+}
+.login-container h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+.login-container p {
+    color: #666;
+    margin-bottom: 30px;
+}
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 500;
+}
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.info-text {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+}
+/* Admin container */
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+}
+.admin-header {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-content {
+    padding: 40px;
+}
+/* Toolbar */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.toolbar h2 {
+    color: #333;
+}
+/* Tablica */
+.prostorije-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.prostorije-table thead {
+    background: #f8f9fa;
+}
+.prostorije-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 2px solid #dee2e6;
+}
+.prostorije-table td {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+.prostorije-table tr:hover {
+    background: #f8f9fa;
+}
+/* Buttoni */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+.btn-primary:hover {
+    background: #5568d3;
+}
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+.btn-info {
+    background: #17a2b8;
+    color: white;
+}
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+/* Badgeovi */
+.badge {
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+}
+.badge-success {
+    background: #28a745;
+    color: white;
+}
+.badge-danger {
+    background: #dc3545;
+    color: white;
+}
+/* Forma */
+.form-container {
+    max-width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+    font-size: 12px;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+.no-data {
+    text-align: center;
+    color: #888;
+    padding: 40px;
+}

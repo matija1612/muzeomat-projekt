@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Muzeomat Admin</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Muzeomat Admin Panel</h1>
+            <a href="/logout" class="btn btn-secondary">Odjava</a>
+        </header>
+        
+        <main class="admin-content">
+            <div class="toolbar">
+                <h2>Upravljanje prostorijama</h2>
+                <a href="/admin/prostorije/nova" class="btn btn-primary">
+                    + Dodaj novu prostoriju
+                </a>
+            </div>
+            
+            <table class="prostorije-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Naziv</th>
+                        <th>Kat</th>
+                        <th>Koordinate (X, Y)</th>
+                        <th>Trajanje (min)</th>
+                        <th>Aktivna</th>
+                        <th>Akcije</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="p : ${prostorije}">
+                        <td th:text="${p.id}">1</td>
+                        <td th:text="${p.naziv}">Ulazna dvorana</td>
+                        <td th:text="${p.brojKata}">0</td>
+                        <td th:text="${p.koordinataX + ', ' + p.koordinataY}">100, 150</td>
+                        <td th:text="${p.prosjecnoTrajanje}">15</td>
+                        <td>
+                            <span th:if="${p.aktivna}" class="badge badge-success">Da</span>
+                            <span th:unless="${p.aktivna}" class="badge badge-danger">Ne</span>
+                        </td>
+                        <td>
+                            <a th:href="@{/admin/prostorije/{id}/uredi(id=${p.id})}"
+                               class="btn btn-sm btn-info">Uredi</a>
+                            <a th:href="@{/admin/prostorije/{id}/obrisi(id=${p.id})}" 
+                               class="btn btn-sm btn-danger"
+                               onclick="return confirm('Jeste li sigurni da zelite obrisati?')">Obriši</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p th:if="${#lists.isEmpty(prostorije)}" class="no-data">
+                Nema prostorija u bazi. Dodajte prvu prostoriju!
+            </p>
+        </main>
+    </div>
+</body>
+</html>
