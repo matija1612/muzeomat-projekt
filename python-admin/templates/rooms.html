@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}Prostorije - Muzej Admin{% endblock %}
+{% block content %}
+<div class="rooms-page">
+    <div class="page-header">
+        <h2>Upravljanje Prostorijama</h2>
+        <a href="{{ url_for('admin.create_room') }}" class="btn btn-success">+ Nova Prostorija</a>
+    </div>
+    
+    <!-- Korak 5 Kreiraj rooms.html -->
+
+    <table class="rooms-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Naziv</th>
+                <th>Kat</th>
+                <th>Koordinate</th>
+                <th>Trajanje (min)</th>
+                <th>Wheelchair</th>
+                <th>Status</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for room in rooms %}
+            <tr class="{% if not room.is_active %}inactive{% endif %}">
+                <td>{{ room.id }}</td>
+                <td>{{ room.name }}</td>
+                <td>{{ room.floor_number }}</td>
+                <td>({{ room.coordinates_x }}, {{ room.coordinates_y }})</td>
+                <td>{{ room.avg_visit_duration }}</td>
+                <td>{% if room.wheelchair_accessible %}✓{% else %}✗{% endif %}</td>
+                <td>
+                    {% if room.is_active %}
+                        <span class="badge badge-success">Aktivna</span>
+                    {% else %}
+                        <span class="badge badge-danger">Neaktivna</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ url_for('admin.edit_room', room_id=room.id) }}" class="btn btn-sm btn-primary">Uredi</a>
+                    {% if room.is_active %}
+                    <form method="POST" action="{{ url_for('admin.deactivate_room', room_id=room.id) }}" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Jeste li sigurni da želite deaktivirati ovu prostoriju?');">Deaktiviraj</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="8" style="text-align:center;">Nema prostorija. Kreirajte prvu prostoriju.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: muzej-postgres
+    environment:
+      POSTGRES_DB: muzej_local
+      POSTGRES_USER: muzej_user
+      POSTGRES_PASSWORD: lokalnaLozinka123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U muzej_user -d muzej_local"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: muzej-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+  # Python Flask Admin Panel
+  python-admin:
+    build:
+      context: ./python-admin
+      dockerfile: Dockerfile
+    container_name: muzej-python-admin
+    environment:
+      DATABASE_URL: postgresql://muzej_user:lokalnaLozinka123@postgres:5432/muzej_local
+      SECRET_KEY: compose-secret-key-xyz789
+      FLASK_ENV: development
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./python-admin:/app
+volumes:
+  postgres_data:
