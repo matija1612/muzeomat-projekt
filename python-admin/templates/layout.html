@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Muzej Admin{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Muzej Admin Panel</h1>
+            {% if session.get('username') %}
+            <nav>
+                <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('admin.rooms') }}">Prostorije</a>
+                <a href="{{ url_for('admin.statistics') }}">Statistika</a>
+                <a href="{{ url_for('admin.logout') }}">Logout ({{ session.username }})</a>
+            </nav>
+            {% endif %}
+        </header>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 Muzej System - Član 4</p>
+        </footer>
+    </div>
+</body>
+</html>

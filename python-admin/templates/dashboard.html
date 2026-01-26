@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard - Muzej Admin{% endblock %}
+{% block content %}
+<div class="dashboard">
+    <h2>Dashboard</h2>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Ukupno Prostorija</h3>
+            <p class="stat-number">{{ total_rooms }}</p>
+        </div>
+        
+        <div class="stat-card">
+            <h3>Aktivne Prostorije</h3>
+            <p class="stat-number">{{ active_rooms }}</p>
+        </div>
+        
+        <div class="stat-card">
+            <h3>Generirane Rute</h3>
+            <p class="stat-number">{{ total_routes }}</p>
+        </div>
+    </div>
+    
+    <!-- Brze akcije -->
+    <div class="quick-actions">
+        <h3>Brze Akcije</h3>
+        <a href="{{ url_for('admin.create_room') }}" class="btn btn-success">+ Nova Prostorija</a>
+        <a href="{{ url_for('admin.rooms') }}" class="btn btn-info">Pregled Prostorija</a>
+        <a href="{{ url_for('admin.statistics') }}" class="btn btn-secondary">Statistika</a>
+    </div>
+</div>
+{% endblock %}
