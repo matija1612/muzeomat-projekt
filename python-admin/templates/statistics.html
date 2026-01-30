@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Statistika - Muzej Admin{% endblock %}
+{% block content %}
+<div class="statistics-page">
+    <h2>Statistika Sustava</h2>
+    
+    <!-- Korak 7 Kreiraj statistics.html -->
+
+    <div class="stat-section">
+        <h3>Prostorije po Katovima</h3>
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Kat</th>
+                    <th>Broj Prostorija</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for floor, count in rooms_by_floor %}
+                <tr>
+                    <td>Kat {{ floor }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="2" style="text-align:center;">Nema podataka</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

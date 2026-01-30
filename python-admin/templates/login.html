@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Login - Muzej Admin{% endblock %}
+
+{% block content %}
+<h2>Prijava</h2>
+<form method="POST" action="{{ url_for('admin.login') }}">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+        {{ form.username.label }}
+        {{ form.username(class="form-control", placeholder="Unesite korisničko ime") }}
+        {% if form.username.errors %}
+            <div class="text-danger">
+                {{ form.username.errors[0] }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        {{ form.password.label }}
+        {{ form.password(class="form-control", placeholder="Unesite lozinku") }}
+        {% if form.password.errors %}
+            <div class="text-danger">
+                {{ form.password.errors[0] }}
+            </div>
+        {% endif %}
+    </div>
+
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}
